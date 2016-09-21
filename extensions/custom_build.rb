@@ -1,3 +1,4 @@
+require "git_wand"
 require "json"
 require "securerandom"
 
@@ -16,11 +17,10 @@ class CustomBuild < Middleman::Extension
     # 1. fetching
     # 2. merging
     # 3. checking the need for a Pull Request
-    data = [
-      {"id" => 1, "name" => "Donald Duck"},
-      {"id" => 2, "name" => "Agent Smith", "movie" => "The Matrix"},
-      {"id" => 3, "name" => "Clark Kent"},
-    ]
+    data = JSON.parse(File.read("datasets/data.json"))
+    data << {
+      "uuid" => uuid
+    }
     client.update_file(owner: owner, repo: repo, branch: "master", path: path, message: "Updating file #{path}", content: JSON.pretty_generate(data))
   end
 end
