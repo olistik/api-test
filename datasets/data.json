@@ -1,4 +1,15 @@
 [
-  {"id": 1, "name": "Donald Duck"},
-  {"id": 2, "name": "Agent Smith"}
+  {
+    "id": 1,
+    "name": "Donald Duck"
+  },
+  {
+    "id": 2,
+    "name": "Agent Smith",
+    "movie": "The Matrix"
+  },
+  {
+    "id": 3,
+    "name": "Clark Kent"
+  }
 ]
